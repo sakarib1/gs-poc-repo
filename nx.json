@@ -33,6 +33,20 @@
     "merlin-shell-e2e": {
       "tags": [],
       "implicitDependencies": ["merlin-shell"]
+    },
+    "po-capture": {
+      "tags": []
+    },
+    "po-capture-e2e": {
+      "tags": [],
+      "implicitDependencies": ["po-capture"]
+    },
+    "sq-replacement": {
+      "tags": []
+    },
+    "sq-replacement-e2e": {
+      "tags": [],
+      "implicitDependencies": ["sq-replacement"]
     }
   }
 }

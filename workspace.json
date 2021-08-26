@@ -21,7 +21,7 @@
             ],
             "styles": ["apps/merlin-shell/src/styles.scss"],
             "scripts": [],
-            "webpackConfig": "@nrwl/react/plugins/webpack"
+            "webpackConfig": "apps/merlin-shell/config/webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -99,6 +99,210 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/merlin-shell-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "po-capture": {
+      "root": "apps/po-capture",
+      "sourceRoot": "apps/po-capture/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/po-capture",
+            "index": "apps/po-capture/src/index.html",
+            "main": "apps/po-capture/src/main.tsx",
+            "polyfills": "apps/po-capture/src/polyfills.ts",
+            "tsConfig": "apps/po-capture/tsconfig.app.json",
+            "assets": [
+              "apps/po-capture/src/favicon.ico",
+              "apps/po-capture/src/assets"
+            ],
+            "styles": ["apps/po-capture/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "apps/po-capture/config/webpack.config.js"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/po-capture/src/environments/environment.ts",
+                  "with": "apps/po-capture/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "po-capture:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "po-capture:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/po-capture/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/po-capture"],
+          "options": {
+            "jestConfig": "apps/po-capture/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "po-capture-e2e": {
+      "root": "apps/po-capture-e2e",
+      "sourceRoot": "apps/po-capture-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/po-capture-e2e/cypress.json",
+            "tsConfig": "apps/po-capture-e2e/tsconfig.e2e.json",
+            "devServerTarget": "po-capture:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "po-capture:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/po-capture-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "sq-replacement": {
+      "root": "apps/sq-replacement",
+      "sourceRoot": "apps/sq-replacement/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/sq-replacement",
+            "index": "apps/sq-replacement/src/index.html",
+            "main": "apps/sq-replacement/src/main.tsx",
+            "polyfills": "apps/sq-replacement/src/polyfills.ts",
+            "tsConfig": "apps/sq-replacement/tsconfig.app.json",
+            "assets": [
+              "apps/sq-replacement/src/favicon.ico",
+              "apps/sq-replacement/src/assets"
+            ],
+            "styles": ["apps/sq-replacement/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "apps/sq-replacement/config/webpack.config.js"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/sq-replacement/src/environments/environment.ts",
+                  "with": "apps/sq-replacement/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "sq-replacement:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "sq-replacement:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/sq-replacement/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/sq-replacement"],
+          "options": {
+            "jestConfig": "apps/sq-replacement/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "sq-replacement-e2e": {
+      "root": "apps/sq-replacement-e2e",
+      "sourceRoot": "apps/sq-replacement-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/sq-replacement-e2e/cypress.json",
+            "tsConfig": "apps/sq-replacement-e2e/tsconfig.e2e.json",
+            "devServerTarget": "sq-replacement:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "sq-replacement:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/sq-replacement-e2e/**/*.{js,ts}"]
           }
         }
       }
